@@ -1,5 +1,6 @@
-Knock.setup do |config|
+# frozen_string_literal: true
 
+Knock.setup do |config|
   ## Expiration claim
   ## ----------------
   ##
@@ -8,7 +9,6 @@ Knock.setup do |config|
   ##
   ## Default:
   config.token_lifetime = 1.week
-
 
   ## Audience claim
   ## --------------
@@ -36,10 +36,9 @@ Knock.setup do |config|
   ## Configure the key used to sign tokens.
   ##
   ## Default:
-  #config.token_secret_signature_key = -> { Rails.application.secrets.secret_key_base }
- config.token_secret_signature_key = -> { Rails.application.credentials.read }
-  #config.token_secret_signature_key = -> { "yoursercet" }
-  
+  # config.token_secret_signature_key = -> { Rails.application.secrets.secret_key_base }
+  config.token_secret_signature_key = -> { Rails.application.credentials.read }
+  # config.token_secret_signature_key = -> { "yoursercet" }
 
   ## If using Auth0, uncomment the line below
   # config.token_secret_signature_key = -> { JWT.base64url_decode Rails.application.secrets.auth0_client_secret }

@@ -1,6 +1,6 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  
-  
   namespace :api do
     namespace :v1 do
       # User actions
@@ -14,9 +14,6 @@ Rails.application.routes.draw do
       get    'auth'            => 'home#auth'
       # Get login token from Knock
       post 'user_token' => 'user_token#create'
-      
     end
   end
-  
-  
 end

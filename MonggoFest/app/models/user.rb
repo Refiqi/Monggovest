@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
-	# Necessary to authenticate.
+  # Necessary to authenticate.
   has_secure_password
-  
+
   # Basic password validation, configure to your liking.
   validates_length_of       :password, maximum: 72, minimum: 8, allow_nil: true, allow_blank: false
   validates_confirmation_of :password, allow_nil: true, allow_blank: false
 
-  before_validation { 
-    (self.email = self.email.to_s.downcase) && (self.username = self.username.to_s.downcase) 
-  }
+  before_validation do
+    (self.email = email.to_s.downcase) && (self.username = username.to_s.downcase)
+  end
 
   # Make sure email and username are present and unique.
   validates_presence_of     :email
@@ -21,11 +23,6 @@ class User < ApplicationRecord
     role == 'admin' || id.to_s == user_id.to_s
   end
 
-  # This method tells us if the user is an admin or not.
-  def is_admin?
-    role == 'admin'
-  end
-
   def generate_password_token!
     self.reset_password_token = generate_token
     self.reset_password_sent_at = Time.now.utc
@@ -33,7 +30,7 @@ class User < ApplicationRecord
   end
 
   def password_token_valid?
-    (self.reset_password_sent_at + 4.hours) > Time.now.utc
+    (reset_password_sent_at + 4.hours) > Time.now.utc
   end
 
   def reset_password!(password)
@@ -42,10 +39,9 @@ class User < ApplicationRecord
     save!
   end
 
-private
+  private
 
   def generate_token
     SecureRandom.hex(10)
   end
-  
 end
