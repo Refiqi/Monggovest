@@ -7,6 +7,11 @@ class Api::V1::HomeController < ApplicationController
     render json: { service: 'auth-api', status: 200 }
   end
 
+  def all
+    user = User.all
+    render json: user, status: :ok
+  end
+
   # Authorized only method
   def auth
     if authenticate_user true
