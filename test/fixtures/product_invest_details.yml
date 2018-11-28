@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  period: 1
+  return_value: 1
+  share_period: 1
+  background: MyText
+  product_invest: one
+
+two:
+  description: MyText
+  period: 1
+  return_value: 1
+  share_period: 1
+  background: MyText
+  product_invest: two

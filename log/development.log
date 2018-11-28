@@ -1,0 +1,634 @@
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2018-11-27 19:59:19 +0700
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "MonggoFest_development" does not exist
+):
+  
+activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:688:in `rescue in connect'
+activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:683:in `connect'
+activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:215:in `initialize'
+activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:40:in `new'
+activerecord (5.2.1) lib/active_record/connection_adapters/postgresql_adapter.rb:40:in `postgresql_connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:809:in `new_connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:853:in `checkout_new_connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:832:in `try_to_checkout_new_connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:793:in `acquire_connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:521:in `checkout'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:380:in `connection'
+activerecord (5.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:1008:in `retrieve_connection'
+activerecord (5.2.1) lib/active_record/connection_handling.rb:118:in `retrieve_connection'
+activerecord (5.2.1) lib/active_record/connection_handling.rb:90:in `connection'
+activerecord (5.2.1) lib/active_record/migration.rb:554:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (947.9ms)[0m  [1m[35mCREATE DATABASE "MonggoFest_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:11
+  [1m[35m (881.5ms)[0m  [1m[35mCREATE DATABASE "MonggoFest_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:11
+  [1m[35m (192.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:11
+  [1m[35m (112.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:11
+  [1m[35m (13.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1066660602988844535)[0m
+  ↳ bin/rails:11
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+Migrating to CreateUsers (20181122112548)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (110.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying, "role" character varying DEFAULT 'user' NOT NULL, "last_login" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181122112548_create_users.rb:5
+  [1m[35m (63.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20181122112548_create_users.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181122112548"]]
+  ↳ bin/rails:11
+  [1m[35m (24.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+Migrating to AddPasswordResetColumnsToUser (20181125023908)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" character varying[0m
+  ↳ db/migrate/20181125023908_add_password_reset_columns_to_user.rb:5
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" timestamp[0m
+  ↳ db/migrate/20181125023908_add_password_reset_columns_to_user.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181125023908"]]
+  ↳ bin/rails:11
+  [1m[35m (9.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-27 13:00:04.866263"], ["updated_at", "2018-11-27 13:00:04.866263"]]
+  ↳ bin/rails:11
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(1066660602988844535)[0m
+  ↳ bin/rails:11
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2018-11-27 20:02:08 +0700
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com", "password"=>"[FILTERED]", "username"=>"ronaldo"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[36mUser Exists (26.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ronaldo@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "ronaldo"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[36mUser Create (10.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "ronaldo"], ["email", "ronaldo@example.com"], ["password_digest", "$2a$10$M7Ba40ftXpPkM9USRjETYuxKyXJjLY0ZSOsUICd8ki44YYAqAG0Iu"], ["created_at", "2018-11-27 13:02:10.082180"], ["updated_at", "2018-11-27 13:02:10.082180"]]
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[35m (19.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.31ms)
+Completed 200 OK in 300ms (Views: 42.4ms | ActiveRecord: 71.1ms)
+
+
+Started POST "/api/v1/user_token" for 127.0.0.1 at 2018-11-27 20:02:45 +0700
+Processing by Api::V1::UserTokenController#create as */*
+  Parameters: {"auth"=>{"email"=>"ronaldo@example.com", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"ronaldo@example.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ronaldo@example.com"], ["LIMIT", 1]]
+  ↳ /home/rauf/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Knock::AuthToken (0.28ms)
+Completed 201 Created in 169ms (Views: 18.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/v1/auth" for 127.0.0.1 at 2018-11-27 20:03:26 +0700
+Processing by Api::V1::HomeController#auth as */*
+  Parameters: {"auth"=>{"email"=>"ronaldo@example.com", "password"=>"[FILTERED]"}, "home"=>{"auth"=>{"email"=>"ronaldo@example.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/rauf/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.31ms)
+Completed 401 Unauthorized in 10ms (Views: 2.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-27 20:06:37 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/password/forgot"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-27 20:06:57 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"auth"=>{"email"=>"ronaldo@example.com", "password"=>"[FILTERED]"}, "password"=>{"auth"=>{"email"=>"ronaldo@example.com", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.31ms)
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-27 20:07:26 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"auth"=>{"email"=>"ronaldo@example.com", "password"=>"[FILTERED]"}, "password"=>{"auth"=>{"email"=>"ronaldo@example.com", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-27 20:07:44 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com"}, "password"=>{"user"=>{"email"=>"ronaldo@example.com"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-27 20:11:34 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com"}, "password"=>{"user"=>{"email"=>"ronaldo@example.com"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.25ms)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-27 20:13:28 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>{"email"=>"ronaldo@example.com"}, "password"=>{"email"=>{"email"=>"ronaldo@example.com"}}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 3.6ms)
+
+
+  
+ActiveRecord::StatementInvalid (can't cast ActionController::Parameters):
+  
+app/controllers/api/v1/passwords_controller.rb:9:in `forgot'
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-27 20:13:55 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"auth"=>{"email"=>"ronaldo@example.com"}, "password"=>{"auth"=>{"email"=>"ronaldo@example.com"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.28ms)
+Completed 200 OK in 7ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-27 20:20:49 +0700
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com"}, "password"=>{"user"=>{"email"=>"ronaldo@example.com"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.39ms)
+Completed 200 OK in 44ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-27 20:20:53 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com"}, "password"=>{"user"=>{"email"=>"ronaldo@example.com"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.33ms)
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/reset" for 127.0.0.1 at 2018-11-27 20:21:30 +0700
+Processing by Api::V1::PasswordsController#reset as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com"}, "password"=>{"user"=>{"email"=>"ronaldo@example.com"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/reset" for 127.0.0.1 at 2018-11-27 20:29:12 +0700
+Processing by Api::V1::PasswordsController#reset as */*
+  Parameters: {"email"=>"ronaldo@example.com", "token"=>"6ba7c945c1e47e435bd6", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."reset_password_token" = $1 LIMIT $2[0m  [["reset_password_token", "6ba7c945c1e47e435bd6"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:25
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.27ms)
+Completed 404 Not Found in 50ms (Views: 1.8ms | ActiveRecord: 7.2ms)
+
+
+Started POST "/api/v1/password/reset" for 127.0.0.1 at 2018-11-27 20:43:03 +0700
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::PasswordsController#reset as */*
+  Parameters: {"email"=>"ronaldo@example.com", "token"=>"C/Ea/Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88/5DUU+BW1NI+2Auycw7hkXdYPEsvDvvGK+SIWoDZ+g==", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."reset_password_token" = $1 LIMIT $2[0m  [["reset_password_token", "C/Ea/Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88/5DUU+BW1NI+2Auycw7hkXdYPEsvDvvGK+SIWoDZ+g=="], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:25
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.33ms)
+Completed 404 Not Found in 71ms (Views: 28.0ms | ActiveRecord: 9.2ms)
+
+
+Started POST "/api/v1/password/reset" for 127.0.0.1 at 2018-11-27 20:54:24 +0700
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::PasswordsController#reset as */*
+  Parameters: {"email"=>"ronaldo@example.com", "token"=>"C/Ea/Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88/5DUU+BW1NI+2Auycw7hkXdYPEsvDvvGK+SIWoDZ+g==", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."reset_password_token" = $1 LIMIT $2[0m  [["reset_password_token", "C/Ea/Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88/5DUU+BW1NI+2Auycw7hkXdYPEsvDvvGK+SIWoDZ+g=="], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:25
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.26ms)
+Completed 404 Not Found in 75ms (Views: 35.1ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/api/v1/password/reset" for 127.0.0.1 at 2018-11-27 20:54:58 +0700
+Processing by Api::V1::PasswordsController#reset as */*
+  Parameters: {"email"=>"ronaldo@example.com", "token"=>"Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."reset_password_token" = $1 LIMIT $2[0m  [["reset_password_token", "Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:25
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.26ms)
+Completed 404 Not Found in 10ms (Views: 2.6ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/api/v1/password/reset" for 127.0.0.1 at 2018-11-27 20:55:15 +0700
+Processing by Api::V1::PasswordsController#reset as */*
+  Parameters: {"email"=>"ronaldo@example.com", "password"=>{"email"=>"ronaldo@example.com"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."reset_password_token" = $1 LIMIT $2[0m  [["reset_password_token", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:25
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.24ms)
+Completed 404 Not Found in 9ms (Views: 1.6ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/v1/password/reset" for 127.0.0.1 at 2018-11-27 20:55:43 +0700
+Processing by Api::V1::PasswordsController#reset as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com"}, "password"=>{"user"=>{"email"=>"ronaldo@example.com"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/reset" for 127.0.0.1 at 2018-11-27 20:56:20 +0700
+Processing by Api::V1::PasswordsController#reset as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com", "token"=>"Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88", "password"=>"[FILTERED]"}, "password"=>{"user"=>{"email"=>"ronaldo@example.com", "token"=>"Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/reset" for 127.0.0.1 at 2018-11-27 20:56:22 +0700
+Processing by Api::V1::PasswordsController#reset as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com", "token"=>"Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88", "password"=>"[FILTERED]"}, "password"=>{"user"=>{"email"=>"ronaldo@example.com", "token"=>"Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/reset" for 127.0.0.1 at 2018-11-27 20:56:23 +0700
+Processing by Api::V1::PasswordsController#reset as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com", "token"=>"Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88", "password"=>"[FILTERED]"}, "password"=>{"user"=>{"email"=>"ronaldo@example.com", "token"=>"Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/reset" for 127.0.0.1 at 2018-11-27 20:57:58 +0700
+Processing by Api::V1::PasswordsController#reset as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com", "token"=>"C/Ea/Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88/5DUU+BW1NI+2Auycw7hkXdYPEsvDvvGK+SIWoDZ+g==", "password"=>"[FILTERED]"}, "password"=>{"user"=>{"email"=>"ronaldo@example.com", "token"=>"C/Ea/Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88/5DUU+BW1NI+2Auycw7hkXdYPEsvDvvGK+SIWoDZ+g==", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/reset" for 127.0.0.1 at 2018-11-27 20:58:00 +0700
+Processing by Api::V1::PasswordsController#reset as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com", "token"=>"C/Ea/Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88/5DUU+BW1NI+2Auycw7hkXdYPEsvDvvGK+SIWoDZ+g==", "password"=>"[FILTERED]"}, "password"=>{"user"=>{"email"=>"ronaldo@example.com", "token"=>"C/Ea/Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88/5DUU+BW1NI+2Auycw7hkXdYPEsvDvvGK+SIWoDZ+g==", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/reset" for 127.0.0.1 at 2018-11-27 20:58:01 +0700
+Processing by Api::V1::PasswordsController#reset as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com", "token"=>"C/Ea/Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88/5DUU+BW1NI+2Auycw7hkXdYPEsvDvvGK+SIWoDZ+g==", "password"=>"[FILTERED]"}, "password"=>{"user"=>{"email"=>"ronaldo@example.com", "token"=>"C/Ea/Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88/5DUU+BW1NI+2Auycw7hkXdYPEsvDvvGK+SIWoDZ+g==", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.3ms)
+Completed 200 OK in 5ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/reset" for 127.0.0.1 at 2018-11-27 20:58:02 +0700
+Processing by Api::V1::PasswordsController#reset as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com", "token"=>"C/Ea/Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88/5DUU+BW1NI+2Auycw7hkXdYPEsvDvvGK+SIWoDZ+g==", "password"=>"[FILTERED]"}, "password"=>{"user"=>{"email"=>"ronaldo@example.com", "token"=>"C/Ea/Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88/5DUU+BW1NI+2Auycw7hkXdYPEsvDvvGK+SIWoDZ+g==", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/reset" for 127.0.0.1 at 2018-11-27 20:58:04 +0700
+Processing by Api::V1::PasswordsController#reset as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com", "token"=>"C/Ea/Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88/5DUU+BW1NI+2Auycw7hkXdYPEsvDvvGK+SIWoDZ+g==", "password"=>"[FILTERED]"}, "password"=>{"user"=>{"email"=>"ronaldo@example.com", "token"=>"C/Ea/Msup3AoP79Zh+UxutMROTf12NzSMizmiKMzDX88/5DUU+BW1NI+2Auycw7hkXdYPEsvDvvGK+SIWoDZ+g==", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1066660602988844535)[0m
+  ↳ bin/rails:11
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(1066660602988844535)[0m
+  ↳ bin/rails:11
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1066660602988844535)[0m
+  ↳ bin/rails:11
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1066660602988844535)[0m
+  ↳ bin/rails:11
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1066660602988844535)[0m
+  ↳ bin/rails:11
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(1066660602988844535)[0m
+  ↳ bin/rails:11
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:11
+  [1m[35m (272.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "MonggoFest_development"[0m
+  ↳ bin/rails:11
+  [1m[35m (306.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "MonggoFest_test"[0m
+  ↳ bin/rails:11
+  [1m[35m (1067.1ms)[0m  [1m[35mCREATE DATABASE "MonggoFest_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:11
+  [1m[35m (732.1ms)[0m  [1m[35mCREATE DATABASE "MonggoFest_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:11
+  [1m[35m (132.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:11
+  [1m[35m (135.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:11
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1066660602988844535)[0m
+  ↳ bin/rails:11
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+Migrating to CreateUsers (20181122112548)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (126.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying, "role" character varying DEFAULT 'user' NOT NULL, "last_login" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181122112548_create_users.rb:5
+  [1m[35m (40.1ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20181122112548_create_users.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181122112548"]]
+  ↳ bin/rails:11
+  [1m[35m (23.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+Migrating to AddPasswordResetColumnsToUser (20181125023908)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" character varying[0m
+  ↳ db/migrate/20181125023908_add_password_reset_columns_to_user.rb:5
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" timestamp[0m
+  ↳ db/migrate/20181125023908_add_password_reset_columns_to_user.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181125023908"]]
+  ↳ bin/rails:11
+  [1m[35m (20.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-27 14:16:09.937200"], ["updated_at", "2018-11-27 14:16:09.937200"]]
+  ↳ bin/rails:11
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(1066660602988844535)[0m
+  ↳ bin/rails:11
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1066660602988844535)[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/bin/rake:23
+Migrating to ChangeColName (20181127141907)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(1066660602988844535)[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1066660602988844535)[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/bin/rake:23
+Migrating to ChangeColName (20181127141907)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "username" TO "name"[0m
+  ↳ db/migrate/20181127141907_change_col_name.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181127141907"]]
+  ↳ /home/rauf/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (59.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/rauf/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(1066660602988844535)[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/bin/rake:23
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2018-11-27 21:24:45 +0700
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"ronaldo@example.com", "password"=>"[FILTERED]", "name"=>"ronaldo"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[36mUser Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ronaldo@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[36mUser Create (2.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ronaldo"], ["email", "ronaldo@example.com"], ["password_digest", "$2a$10$jYn47AZRQBZEEpjGYz8hY.UGpth.wrnRX9tiIz45DNPpKZs6/bAXm"], ["created_at", "2018-11-27 14:24:46.510234"], ["updated_at", "2018-11-27 14:24:46.510234"]]
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[35m (19.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.43ms)
+Completed 200 OK in 277ms (Views: 33.1ms | ActiveRecord: 38.1ms)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2018-11-27 21:25:17 +0700
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"messi@example.com", "password"=>"[FILTERED]", "name"=>"messi"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[36mUser Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "messi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "messi"], ["email", "messi@example.com"], ["password_digest", "$2a$10$jKA9Ba1Iu0ZbUPTISn.5neVAvXI5/vnrcXzB7eFn9wSaVEGHGQBIu"], ["created_at", "2018-11-27 14:25:17.187491"], ["updated_at", "2018-11-27 14:25:17.187491"]]
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[35m (19.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.39ms)
+Completed 200 OK in 152ms (Views: 1.9ms | ActiveRecord: 23.1ms)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2018-11-27 21:26:45 +0700
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"beckham@example.com", "password"=>"[FILTERED]", "name"=>"beckham"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "beckham@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "beckham"], ["email", "beckham@example.com"], ["password_digest", "$2a$10$lS8/c8wvnTo3vfGDf64ZxOWYF9zM8aIQHEQ3ikPvQBeLrEwdG6QPK"], ["created_at", "2018-11-27 14:26:45.293349"], ["updated_at", "2018-11-27 14:26:45.293349"]]
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[35m (65.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.64ms)
+Completed 200 OK in 207ms (Views: 2.3ms | ActiveRecord: 68.1ms)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2018-11-27 21:27:21 +0700
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"kaka@example.com", "password"=>"[FILTERED]", "name"=>"kaka"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kaka@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "kaka"], ["email", "kaka@example.com"], ["password_digest", "$2a$10$meoCJLvTylePZZdHXTsIu.Ok7cR61ic9AHKmsatwivshgKBVNawpe"], ["created_at", "2018-11-27 14:27:21.580706"], ["updated_at", "2018-11-27 14:27:21.580706"]]
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[35m (19.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.34ms)
+Completed 200 OK in 153ms (Views: 1.6ms | ActiveRecord: 21.9ms)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2018-11-27 21:27:49 +0700
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"juminten@example.com", "password"=>"[FILTERED]", "name"=>"juminten"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "juminten@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "juminten"], ["email", "juminten@example.com"], ["password_digest", "$2a$10$eQSVHXw4WmzO89G/71idRO4HWA0ofHDGYUE/X/i18wXB9TjiRY.LG"], ["created_at", "2018-11-27 14:27:49.571262"], ["updated_at", "2018-11-27 14:27:49.571262"]]
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[35m (59.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.67ms)
+Completed 200 OK in 196ms (Views: 2.7ms | ActiveRecord: 61.5ms)
+
+
+Started POST "/api/v1/user_token" for 127.0.0.1 at 2018-11-27 21:30:29 +0700
+Processing by Api::V1::UserTokenController#create as */*
+  Parameters: {"auth"=>{"email"=>"juminten@example.com", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"juminten@example.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "juminten@example.com"], ["LIMIT", 1]]
+  ↳ /home/rauf/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Knock::AuthToken (0.23ms)
+Completed 201 Created in 173ms (Views: 37.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/v1/auth" for 127.0.0.1 at 2018-11-27 21:31:46 +0700
+Processing by Api::V1::HomeController#auth as */*
+  Parameters: {"auth"=>{"email"=>"juminten@example.com", "password"=>"[FILTERED]"}, "home"=>{"auth"=>{"email"=>"juminten@example.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ /home/rauf/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.03ms)
+Completed 401 Unauthorized in 15ms (Views: 3.7ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2018-11-28 11:33:00 +0700
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/rauf/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"xiaomi@example.com", "password"=>"[FILTERED]", "name"=>"xiaomi"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "xiaomi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[36mUser Create (36.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "xiaomi"], ["email", "xiaomi@example.com"], ["password_digest", "$2a$10$QJfoYGhCAnbHnFJQwzqbvOl/Xae5BvWheCsKOSpufKtefXCy/iwT2"], ["created_at", "2018-11-28 04:33:01.565116"], ["updated_at", "2018-11-28 04:33:01.565116"]]
+  ↳ app/controllers/api/v1/users_controller.rb:32
+  [1m[35m (21.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.3ms)
+Completed 200 OK in 295ms (Views: 44.4ms | ActiveRecord: 71.6ms)
+
+
+Started POST "/api/v1/user_token" for 127.0.0.1 at 2018-11-28 11:33:29 +0700
+Processing by Api::V1::UserTokenController#create as */*
+  Parameters: {"auth"=>{"email"=>"xiaomi@example.com", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"xiaomi@example.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "xiaomi@example.com"], ["LIMIT", 1]]
+  ↳ /home/rauf/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Knock::AuthToken (0.25ms)
+Completed 201 Created in 144ms (Views: 14.0ms | ActiveRecord: 2.0ms)
+
+
