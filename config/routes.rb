@@ -7,11 +7,12 @@ Rails.application.routes.draw do
       post 'password/forgot', to: 'passwords#forgot'
       post 'password/reset', to: 'passwords#reset'
       get    '/users'          => 'users#index'
-      get    '/users/current'  => 'users#current'
+      get    '/users/:id'      => 'users#current'
       post   '/users/create'   => 'users#create'
       patch  '/user/:id'       => 'users#update'
       delete '/user/:id'       => 'users#destroy'
       get    'auth'            => 'home#auth'
+      get 'all'                => 'home#all'
       # Get login token from Knock
       post 'user_token' => 'user_token#create'
     end

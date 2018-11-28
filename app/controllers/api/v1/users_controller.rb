@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
   # Use Knock to make sure the current_user is authenticated before completing request.
   # before_action :authenticate_user,  only: [:index, :current, :update]
   before_action :authorize_as_admin, only: [:destroy]
-  before_action :authorize,          only: [:update]
+  # before_action :authorize,          only: [:update]
 
   # Should work if the current_user is authenticated.
   def index
