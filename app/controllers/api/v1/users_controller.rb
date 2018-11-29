@@ -1,15 +1,10 @@
 # frozen_string_literal: true
 
 class Api::V1::UsersController < ApplicationController
-  # Use Knock to make sure the current_user is authenticated before completing request.
-  # before_action :authenticate_user,  only: [:index, :current, :update]
-  before_action :authorize_as_admin, only: [:destroy]
-  # before_action :authorize,          only: [:update]
-
   # Should work if the current_user is authenticated.
   def index
     if current_user
-      render json: { status: 200, msg: 'Logged-in' }
+      render json: { status: 200, msg: "Logged-in as #{current_user.name}" }
     else
       not_auth
     end
@@ -30,9 +25,9 @@ class Api::V1::UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      render json: { status: 'OK', msg: 'User was created.', error: 'nil' }
+      render json: { status: 'OK', msg: 'User was created.', error: 'nil' }, status: 201
     else
-      not_good(406)
+      not_good(422)
     end
   end
 
@@ -40,7 +35,11 @@ class Api::V1::UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     if user.update(user_params)
-      render json: { status: 'OK', msg: 'User details have been updated.', error: 'nil' }
+      render json: {
+        status: 'OK',
+        msg: 'User details have been updated.',
+        error: 'nil'
+      }, status: 202
     else
       not_good(406)
     end
@@ -59,15 +58,8 @@ class Api::V1::UsersController < ApplicationController
 
   private
 
-  # Setting up strict parameters for when we add account creation.
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :role)
-  end
-
-  # Adding a method to check if current_user can update itself.
-  # This uses our UserModel method.
-  def authorize
-    return_unauthorized unless current_user&.can_modify_user?(params[:id])
   end
 
   def not_auth(status = :unauthorized)

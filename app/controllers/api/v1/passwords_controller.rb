@@ -28,10 +28,12 @@ class Api::V1::PasswordsController < ApplicationController
       if user.reset_password!(params[:password])
         render json: { status: 'ok' }, status: :ok
       else
-        render json: { error: user.errors.full_messages }, status: :unprocessable_entity
+        render json: { error: user.errors.full_messages },
+                        status: :unprocessable_entity
       end
     else
-      render json: { error: ['Link not valid or expired. Try generating a new link.'] }, status: :not_found
+      render json: { error: ['Link not valid or expired. Try generating a new link.'] },
+             status: :not_found
     end
   end
 end

@@ -1,4 +1,3 @@
-
 class Api::V1::HomeController < ApplicationController
   before_action :authenticate_user, only: [:auth]
 
@@ -15,7 +14,7 @@ class Api::V1::HomeController < ApplicationController
   # Authorized only method
   def auth
     if authenticate_user true
-      render json: { status: 200, msg: "You are currently Logged-in as #{current_user.username}" }
+      render json: { status: 200, msg: "You are currently Logged-in as #{current_user.name}" }
     else
       not_auth
    end

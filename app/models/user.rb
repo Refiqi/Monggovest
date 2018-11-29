@@ -16,15 +16,7 @@ class User < ApplicationRecord
   validates_presence_of     :email
   validates_presence_of     :name
   validates_uniqueness_of   :email
-<<<<<<< HEAD:app/models/user.rb
-  #validates_uniqueness_of   :username
-=======
->>>>>>> 9ba2542cb050e3ee1e8aa6f475fc0a9fc5d86855:app/models/user.rb
-
-  # This method gives us a simple call to check if a user has permission to modify.
-  def can_modify_user?(user_id)
-    role == 'admin' || id.to_s == user_id.to_s
-  end
+  # validates_uniqueness_of   :username
 
   def generate_password_token!
     self.reset_password_token = generate_token

@@ -4,3 +4,9 @@ Style/Documentation:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Rails/Validation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false

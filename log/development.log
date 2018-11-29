@@ -632,3 +632,205 @@ Processing by Api::V1::UserTokenController#create as */*
 Completed 201 Created in 144ms (Views: 14.0ms | ActiveRecord: 2.0ms)
 
 
+Started POST "/api/v1/user_token" for 127.0.0.1 at 2018-11-28 23:42:34 +0700
+  [1m[35m (27.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/refiqi96/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.1) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1066660602988844535)[0m
+  ↳ bin/rails:11
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+Migrating to ChangeColName (20181127141907)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (49.6ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "username" TO "name"[0m
+  ↳ db/migrate/20181127141907_change_col_name.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181127141907"]]
+  ↳ bin/rails:11
+  [1m[35m (31.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (38.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1066660602988844535)[0m
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1066660602988844535)[0m
+  ↳ bin/rails:11
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1066660602988844535)[0m
+  ↳ bin/rails:11
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+Started POST "/api/v1/user_token" for 127.0.0.1 at 2018-11-28 23:43:10 +0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/refiqi96/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::UserTokenController#create as */*
+  Parameters: {"auth"=>{"email"=>"refi@example.com", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"refi@example.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (23.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ /home/refiqi96/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Knock::AuthToken (0.14ms)
+Completed 201 Created in 205ms (Views: 45.9ms | ActiveRecord: 29.7ms)
+
+
+Started POST "/api/v1/user_token" for 127.0.0.1 at 2018-11-29 09:24:29 +0700
+  [1m[35m (55.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/refiqi96/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::UserTokenController#create as */*
+  Parameters: {"auth"=>{"email"=>"refi@example.com", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"refi@example.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ /home/refiqi96/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Knock::AuthToken (0.11ms)
+Completed 201 Created in 230ms (Views: 29.9ms | ActiveRecord: 89.7ms)
+
+
+Started DELETE "/api/v1/user/13" for 127.0.0.1 at 2018-11-29 11:58:43 +0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/refiqi96/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"13"}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Filter chain halted as :authorize_as_admin rendered or redirected
+Completed 401 Unauthorized in 26ms (Views: 19.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users/current" for 127.0.0.1 at 2018-11-29 13:29:17 +0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/refiqi96/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users/current"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/api/v1/users/current" for 127.0.0.1 at 2018-11-29 13:30:53 +0700
+Processing by Api::V1::UsersController#current as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (17.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:22
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refiqi@example.com"], ["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:22
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "last_login" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["last_login", "2018-11-29 06:31:04.243707"], ["updated_at", "2018-11-29 06:31:04.250436"], ["id", 12]]
+  ↳ app/controllers/api/v1/users_controller.rb:22
+  [1m[35m (34.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:22
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.67ms)
+Completed 200 OK in 293ms (Views: 99.6ms | ActiveRecord: 124.2ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-11-29 13:33:00 +0700
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 200 OK in 97ms (Views: 92.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2018-11-29 13:33:53 +0700
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:11
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 200 OK in 44ms (Views: 15.3ms | ActiveRecord: 6.1ms)
+
+
+Started PATCH "/api/v1/user/14" for 127.0.0.1 at 2018-11-29 14:35:13 +0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/refiqi96/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::UsersController#update as */*
+  Parameters: {"user"=>{"username"=>"Laki"}, "id"=>"14"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:41
+Unpermitted parameter: :username
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:42
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refi@example.com"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:42
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:42
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 200 OK in 103ms (Views: 24.1ms | ActiveRecord: 8.9ms)
+
+

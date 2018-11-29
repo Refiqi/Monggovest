@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       post 'password/forgot', to: 'passwords#forgot'
       post 'password/reset', to: 'passwords#reset'
       get    '/users'          => 'users#index'
-      get    '/users/:id'      => 'users#current'
+      get    '/users/current'  => 'users#current'
       post   '/users/create'   => 'users#create'
       patch  '/user/:id'       => 'users#update'
       delete '/user/:id'       => 'users#destroy'
