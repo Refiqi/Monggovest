@@ -106,10 +106,7 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
-<<<<<<< HEAD:Gemfile.lock
     json (2.1.0)
-=======
->>>>>>> 3c84fabff8f07708098de1733047795a953f7043:Gemfile.lock
     jsonapi-renderer (0.2.0)
     jwt (1.5.6)
     knock (2.1.1)
@@ -142,12 +139,9 @@ GEM
       ast (~> 2.4.0)
     pg (1.1.3)
     powerpack (0.1.2)
-<<<<<<< HEAD:Gemfile.lock
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-=======
->>>>>>> 3c84fabff8f07708098de1733047795a953f7043:Gemfile.lock
     public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.6)
@@ -184,7 +178,6 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     regexp_parser (1.3.0)
-<<<<<<< HEAD:Gemfile.lock
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.2)
@@ -202,8 +195,6 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-=======
->>>>>>> 3c84fabff8f07708098de1733047795a953f7043:Gemfile.lock
     rubocop (0.60.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -293,10 +284,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rack-cors
   rails (~> 5.2.1)
-<<<<<<< HEAD:Gemfile.lock
   rspec-rails (~> 3.5)
-=======
->>>>>>> 3c84fabff8f07708098de1733047795a953f7043:Gemfile.lock
   rubocop
   sass-rails (~> 5.0)
   selenium-webdriver

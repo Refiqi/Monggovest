@@ -834,3 +834,428 @@ Unpermitted parameter: :username
 Completed 200 OK in 103ms (Views: 24.1ms | ActiveRecord: 8.9ms)
 
 
+Started GET "/api/v1/all" for 127.0.0.1 at 2018-11-30 08:11:31 +0700
+  [1m[35m (18.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/refiqi96/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.1.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::HomeController#all as */*
+  [1m[36mUser Load (20.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/home_controller.rb:11
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.38ms)
+Completed 200 OK in 423ms (Views: 356.3ms | ActiveRecord: 40.5ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:13:10 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"user"=>{"email"=>"refi@example.com"}, "password"=>{"user"=>{"email"=>"refi@example.com"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 200 OK in 125ms (Views: 124.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:14:02 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "password"=>{"email"=>"refi@example.com"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refi@example.com"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (45.0ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "261122e723cba054f911"], ["reset_password_sent_at", "2018-11-30 01:14:02.834047"], ["updated_at", "2018-11-30 01:14:02.838787"], ["id", 14]]
+  ↳ app/models/user.rb:24
+  [1m[35m (50.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+UserMailer#reset_password: processed outbound mail in 0.9ms
+Completed 500 Internal Server Error in 1205ms (ActiveRecord: 106.1ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/mailers/user_mailer.rb:9:in `reset_password'
+app/controllers/api/v1/passwords_controller.rb:13:in `forgot'
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:16:08 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"user"=>{"email"=>"refi@example.com"}, "password"=>{"user"=>{"email"=>"refi@example.com"}}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Completed 404 Not Found in 29ms (Views: 16.0ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:16:42 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"user"=>{"email"=>"refi@example.com"}, "password"=>{"user"=>{"email"=>"refi@example.com"}}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 404 Not Found in 33ms (Views: 19.9ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:17:07 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"user"=>{"email"=>"refi@example.com"}, "password"=>{"user"=>{"email"=>"refi@example.com"}}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 404 Not Found in 4ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:19:04 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"user"=>{"email"=>"refi@example.com"}, "password"=>{"user"=>{"email"=>"refi@example.com"}}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 404 Not Found in 30ms (Views: 15.0ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:19:07 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"user"=>{"email"=>"refi@example.com"}, "password"=>{"user"=>{"email"=>"refi@example.com"}}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 404 Not Found in 5ms (Views: 1.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:19:23 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"user"=>{"email"=>"refiqi@example.com"}, "password"=>{"user"=>{"email"=>"refiqi@example.com"}}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 404 Not Found in 4ms (Views: 1.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:19:25 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"user"=>{"email"=>"refiqi@example.com"}, "password"=>{"user"=>{"email"=>"refiqi@example.com"}}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 404 Not Found in 7ms (Views: 2.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:19:50 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"user"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}, "password"=>{"user"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}}
+Can't verify CSRF token authenticity.
+Unpermitted parameters: :name, :role
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 404 Not Found in 11ms (Views: 1.9ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:20:13 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"user"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}, "password"=>{"user"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 404 Not Found in 30ms (Views: 20.6ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:20:42 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"user"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}, "password"=>{"user"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}}
+Can't verify CSRF token authenticity.
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.96ms)
+Completed 200 OK in 38ms (Views: 36.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:20:59 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "name"=>"laki", "role"=>"user", "password"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refi@example.com"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (4.1ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "c9098238081b7c879536"], ["reset_password_sent_at", "2018-11-30 01:21:00.100012"], ["updated_at", "2018-11-30 01:21:00.109620"], ["id", 14]]
+  ↳ app/models/user.rb:24
+  [1m[35m (21.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+UserMailer#reset_password: processed outbound mail in 0.6ms
+Completed 500 Internal Server Error in 191ms (ActiveRecord: 36.3ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/mailers/user_mailer.rb:9:in `reset_password'
+app/controllers/api/v1/passwords_controller.rb:13:in `forgot'
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:21:28 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "name"=>"laki", "role"=>"user", "password"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refi@example.com"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "7483156dfe1b12675b18"], ["reset_password_sent_at", "2018-11-30 01:21:28.918711"], ["updated_at", "2018-11-30 01:21:28.922928"], ["id", 14]]
+  ↳ app/models/user.rb:24
+  [1m[35m (311.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 200 OK in 366ms (Views: 20.4ms | ActiveRecord: 319.6ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:22:10 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "name"=>"laki", "role"=>"user", "password"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refi@example.com"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "1eaf631d299ee428b46f"], ["reset_password_sent_at", "2018-11-30 01:22:10.228914"], ["updated_at", "2018-11-30 01:22:10.233448"], ["id", 14]]
+  ↳ app/models/user.rb:24
+  [1m[35m (21.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+UserMailer#reset_password: processed outbound mail in 0.9ms
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 31.4ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/mailers/user_mailer.rb:9:in `reset_password'
+app/controllers/api/v1/passwords_controller.rb:13:in `forgot'
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:22:24 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "name"=>"laki", "role"=>"user", "password"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refi@example.com"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "1f9a01992508275040ff"], ["reset_password_sent_at", "2018-11-30 01:22:24.664529"], ["updated_at", "2018-11-30 01:22:24.669541"], ["id", 14]]
+  ↳ app/models/user.rb:24
+  [1m[35m (15.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+UserMailer#reset_password: processed outbound mail in 0.7ms
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 24.7ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/mailers/user_mailer.rb:9:in `reset_password'
+app/controllers/api/v1/passwords_controller.rb:13:in `forgot'
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:23:14 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "name"=>"laki", "role"=>"user", "password"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refi@example.com"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "9f80e78d1e9b7f5b9022"], ["reset_password_sent_at", "2018-11-30 01:23:14.557079"], ["updated_at", "2018-11-30 01:23:14.564145"], ["id", 14]]
+  ↳ app/models/user.rb:24
+  [1m[35m (30.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+UserMailer#reset_password: processed outbound mail in 0.7ms
+Completed 500 Internal Server Error in 102ms (ActiveRecord: 44.6ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/mailers/user_mailer.rb:9:in `reset_password'
+app/controllers/api/v1/passwords_controller.rb:13:in `forgot'
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:23:58 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "name"=>"laki", "role"=>"user", "password"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 1)):
+  
+app/controllers/api/v1/passwords_controller.rb:9:in `forgot'
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:24:09 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "name"=>"laki", "role"=>"user", "password"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refi@example.com"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "e7e606da39ae2678c3a8"], ["reset_password_sent_at", "2018-11-30 01:24:09.254700"], ["updated_at", "2018-11-30 01:24:09.259898"], ["id", 14]]
+  ↳ app/models/user.rb:24
+  [1m[35m (25.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+UserMailer#reset_password: processed outbound mail in 1.1ms
+Completed 500 Internal Server Error in 81ms (ActiveRecord: 34.1ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/mailers/user_mailer.rb:9:in `reset_password'
+app/controllers/api/v1/passwords_controller.rb:13:in `forgot'
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:24:19 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "name"=>"laki", "role"=>"user", "password"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (27.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user" = $1 LIMIT $2[0m  [["user", "refi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 30.0ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column users.user does not exist
+LINE 1: SELECT  "users".* FROM "users" WHERE "users"."user" = $1 LIM...
+                                             ^
+: SELECT  "users".* FROM "users" WHERE "users"."user" = $1 LIMIT $2):
+  
+app/controllers/api/v1/passwords_controller.rb:9:in `forgot'
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:25:05 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "name"=>"laki", "role"=>"user", "password"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+Completed 500 Internal Server Error in 427ms (ActiveRecord: 8.4ms)
+
+
+  
+NameError (undefined local variable or method `user' for #<Api::V1::PasswordsController:0x00007f83e45cc988>
+Did you mean?  @user):
+  
+app/controllers/api/v1/passwords_controller.rb:11:in `forgot'
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:25:30 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "name"=>"laki", "role"=>"user", "password"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refi@example.com"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "e486741294b56e51830d"], ["reset_password_sent_at", "2018-11-30 01:25:30.754911"], ["updated_at", "2018-11-30 01:25:30.760059"], ["id", 14]]
+  ↳ app/models/user.rb:24
+  [1m[35m (676.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+UserMailer#reset_password: processed outbound mail in 0.5ms
+Completed 500 Internal Server Error in 743ms (ActiveRecord: 692.1ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/mailers/user_mailer.rb:9:in `reset_password'
+app/controllers/api/v1/passwords_controller.rb:13:in `forgot'
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:25:43 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "name"=>"laki", "role"=>"user", "password"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refi@example.com"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "80c4cbbcc48a33b3b351"], ["reset_password_sent_at", "2018-11-30 01:25:44.005868"], ["updated_at", "2018-11-30 01:25:44.012232"], ["id", 14]]
+  ↳ app/models/user.rb:24
+  [1m[35m (18.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 29.9ms)
+
+
+  
+SyntaxError (/home/refiqi96/Project/GlintsxBinar/backend/app/mailers/user_mailer.rb:9: formal argument cannot be an instance variable
+  def reset_password(@user)
+                     ^~~~~):
+  
+app/mailers/user_mailer.rb:9: formal argument cannot be an instance variable
+app/controllers/api/v1/passwords_controller.rb:13:in `forgot'
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:25:57 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "name"=>"laki", "role"=>"user", "password"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (4.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refi@example.com"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "c9c13791607f294215a0"], ["reset_password_sent_at", "2018-11-30 01:25:57.417913"], ["updated_at", "2018-11-30 01:25:57.427699"], ["id", 14]]
+  ↳ app/models/user.rb:24
+  [1m[35m (21.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+UserMailer#reset_password: processed outbound mail in 0.9ms
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 39.3ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/mailers/user_mailer.rb:9:in `reset_password'
+app/controllers/api/v1/passwords_controller.rb:13:in `forgot'
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:26:18 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "name"=>"laki", "role"=>"user", "password"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refi@example.com"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "a3b4bab25ba7c6591836"], ["reset_password_sent_at", "2018-11-30 01:26:18.763616"], ["updated_at", "2018-11-30 01:26:18.770655"], ["id", 14]]
+  ↳ app/models/user.rb:24
+  [1m[35m (12.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+UserMailer#reset_password: processed outbound mail in 7.6ms
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 20.2ms)
+
+
+  
+NameError (undefined local variable or method `user' for #<UserMailer:0x00007f83d85f6d98>):
+  
+app/mailers/user_mailer.rb:10:in `reset_password'
+app/controllers/api/v1/passwords_controller.rb:13:in `forgot'
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-11-30 08:27:14 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "name"=>"laki", "role"=>"user", "password"=>{"email"=>"refi@example.com", "name"=>"laki", "role"=>"user"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refi@example.com"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "dcce940c593361a12dc1"], ["reset_password_sent_at", "2018-11-30 01:27:15.078904"], ["updated_at", "2018-11-30 01:27:15.083582"], ["id", 14]]
+  ↳ app/models/user.rb:24
+  [1m[35m (19.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 200 OK in 83ms (Views: 12.7ms | ActiveRecord: 29.8ms)
+
+

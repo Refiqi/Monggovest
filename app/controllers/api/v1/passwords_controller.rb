@@ -6,11 +6,11 @@ class Api::V1::PasswordsController < ApplicationController
     return render json: { error: 'Email not present' } if params[:email].blank?
 
     # Jika Email ada
-    user = User.find_by(email: params[:email])
+    @user = User.find_by(email: params[:email])
 
-    if user.present?
-      user.generate_password_token! # generate pass token
-      # SEND EMAIL HERE
+    if @user.present?
+      @user.generate_password_token! # generate pass token
+      # UserMailer.with(user: @user).reset_password.deliver_now
       render json: { status: 'ok' }, status: :ok
     else
       render json: { error: ['Email address not found. Please check and try again.'] }, status: :not_found
