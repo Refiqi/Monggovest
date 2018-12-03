@@ -1259,3 +1259,368 @@ Can't verify CSRF token authenticity.
 Completed 200 OK in 83ms (Views: 12.7ms | ActiveRecord: 29.8ms)
 
 
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-12-03 10:39:19 +0700
+  [1m[35m (27.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/refiqi96/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refi@example.com", "password"=>{"email"=>"refi@example.com"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (20.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refi@example.com"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "72345ac3e34aa6dff659"], ["reset_password_sent_at", "2018-12-03 03:39:21.359635"], ["updated_at", "2018-12-03 03:39:21.366793"], ["id", 14]]
+  ↳ app/models/user.rb:24
+  [1m[35m (68.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refi@example.com"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "aae38e9cb210d0cd8e52"], ["reset_password_sent_at", "2018-12-03 03:39:22.234701"], ["updated_at", "2018-12-03 03:39:22.237921"], ["id", 14]]
+  ↳ app/models/user.rb:24
+  [1m[35m (36.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+  Rendering user_mailer/reset_password.html.erb within layouts/mailer
+  Rendered user_mailer/reset_password.html.erb within layouts/mailer (1.5ms)
+UserMailer#reset_password: processed outbound mail in 2547.7ms
+Sent mail to refi@example.com (1279.7ms)
+Date: Mon, 03 Dec 2018 10:39:24 +0700
+From: monggovest1@example.com
+To: refi@example.com
+Message-ID: <5c04a56cc0c59_352b2aec051dd2bc34680@RefiqiMF.mail>
+Subject: Click this link to generate reset                   password true
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Welcome to Monggovest.com, laki</h1>
+  <p>
+    Please Click the Mentioned Link above laki.<br>
+    To get you password reset.
+  </p>
+<p>Thanks for your time and have a great day!</p>
+  </body>
+</html>
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 200 OK in 4814ms (Views: 12.6ms | ActiveRecord: 149.0ms)
+
+
+Started POST "/api/v1/users/create" for 127.0.0.1 at 2018-12-03 10:42:37 +0700
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"refyfadhila96@gmail.com", "password"=>"[FILTERED]", "name"=>"refiqi", "role"=>"admin"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refyfadhila96@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:27
+  [1m[36mUser Create (55.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "refiqi"], ["email", "refyfadhila96@gmail.com"], ["password_digest", "$2a$10$kbJ3zdrj7weFYhHh2DWENOZjOiRNlbwCyEmJwV5tc0BOGs1XruhIG"], ["role", "admin"], ["created_at", "2018-12-03 03:42:37.906238"], ["updated_at", "2018-12-03 03:42:37.906238"]]
+  ↳ app/controllers/api/v1/users_controller.rb:27
+  [1m[35m (30.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 201 Created in 224ms (Views: 1.4ms | ActiveRecord: 88.1ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-12-03 10:43:00 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refyfadhila96@gmail.com", "password"=>{"email"=>"refyfadhila96@gmail.com"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refyfadhila96@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refyfadhila96@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "4872028b5ed33461c959"], ["reset_password_sent_at", "2018-12-03 03:43:00.854825"], ["updated_at", "2018-12-03 03:43:00.857930"], ["id", 15]]
+  ↳ app/models/user.rb:24
+  [1m[35m (234.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refyfadhila96@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "41749f2ebd656d08b766"], ["reset_password_sent_at", "2018-12-03 03:43:01.096716"], ["updated_at", "2018-12-03 03:43:01.100690"], ["id", 15]]
+  ↳ app/models/user.rb:24
+  [1m[35m (19.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+  Rendering user_mailer/reset_password.html.erb within layouts/mailer
+  Rendered user_mailer/reset_password.html.erb within layouts/mailer (0.7ms)
+UserMailer#reset_password: processed outbound mail in 41.4ms
+Sent mail to refyfadhila96@gmail.com (977.2ms)
+Date: Mon, 03 Dec 2018 10:43:01 +0700
+From: monggovest1@example.com
+To: refyfadhila96@gmail.com
+Message-ID: <5c04a64521f34_352b2aec051dd48834772@RefiqiMF.mail>
+Subject: Click this link to generate reset                   password true
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Welcome to Monggovest.com, refiqi</h1>
+  <p>
+    Please Click the Mentioned Link above refiqi.<br>
+    To get you password reset.
+  </p>
+<p>Thanks for your time and have a great day!</p>
+  </body>
+</html>
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 1265ms (Views: 0.8ms | ActiveRecord: 258.4ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-12-03 10:46:22 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refyfadhila96@gmail.com", "password"=>{"email"=>"refyfadhila96@gmail.com"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (21.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refyfadhila96@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (14.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refyfadhila96@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "0736575f9fe3ff6babc9"], ["reset_password_sent_at", "2018-12-03 03:46:23.098365"], ["updated_at", "2018-12-03 03:46:23.115864"], ["id", 15]]
+  ↳ app/models/user.rb:24
+  [1m[35m (37.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refyfadhila96@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "2852993f12f49588cf5e"], ["reset_password_sent_at", "2018-12-03 03:46:23.186097"], ["updated_at", "2018-12-03 03:46:23.189309"], ["id", 15]]
+  ↳ app/models/user.rb:24
+  [1m[35m (35.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+  Rendering user_mailer/reset_password.html.erb within layouts/mailer
+  Rendered user_mailer/reset_password.html.erb within layouts/mailer (0.9ms)
+UserMailer#reset_password: processed outbound mail in 94.1ms
+Sent mail to refyfadhila96@gmail.com (2251.0ms)
+Date: Mon, 03 Dec 2018 10:46:23 +0700
+From: monggovest1@example.com
+To: refyfadhila96@gmail.com
+Message-ID: <5c04a70f449ca_352b2aec051dd3fc348df@RefiqiMF.mail>
+Subject: Click this link to generate reset                   password true
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Welcome to Monggovest.com, refiqi</h1>
+  <p>
+    Please Click the Mentioned Link above refiqi.<br>
+    To get you password reset.
+  </p>
+<p>Thanks for your time and have a great day!</p>
+  </body>
+</html>
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 200 OK in 2470ms (Views: 0.8ms | ActiveRecord: 112.3ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-12-03 10:49:53 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refyfadhila96@gmail.com", "password"=>{"email"=>"refyfadhila96@gmail.com"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refyfadhila96@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refyfadhila96@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (87.8ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "f5a8aa3f090d91ed028e"], ["reset_password_sent_at", "2018-12-03 03:49:53.408885"], ["updated_at", "2018-12-03 03:49:53.411988"], ["id", 15]]
+  ↳ app/models/user.rb:24
+  [1m[35m (28.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refyfadhila96@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "e4b09719f1ea759df078"], ["reset_password_sent_at", "2018-12-03 03:49:53.532176"], ["updated_at", "2018-12-03 03:49:53.536027"], ["id", 15]]
+  ↳ app/models/user.rb:24
+  [1m[35m (20.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+  Rendering user_mailer/reset_password.html.erb within layouts/mailer
+  Rendered user_mailer/reset_password.html.erb within layouts/mailer (0.9ms)
+UserMailer#reset_password: processed outbound mail in 39.2ms
+Sent mail to refyfadhila96@gmail.com (1095.7ms)
+Date: Mon, 03 Dec 2018 10:49:53 +0700
+From: monggovest1@example.com
+To: refyfadhila96@gmail.com
+Message-ID: <5c04a7e18bac7_352b2aec051dd230349a5@RefiqiMF.mail>
+Subject: Click this link to generate reset                   password true
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Welcome to Monggovest.com, refiqi</h1>
+  <p>
+    Please copy the Mentioned token below refiqi.<br>
+    To get you password reset.
+  </p>
+  <p>
+  	<%= @user.reset_password_token =>
+  </p>
+<p>Thanks for your time and have a great day!</p>
+  </body>
+</html>
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 1262ms (Views: 0.8ms | ActiveRecord: 139.2ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-12-03 10:50:51 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refyfadhila96@gmail.com", "password"=>{"email"=>"refyfadhila96@gmail.com"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refyfadhila96@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refyfadhila96@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "1957d78885afe26cf42a"], ["reset_password_sent_at", "2018-12-03 03:51:02.474465"], ["updated_at", "2018-12-03 03:51:02.478746"], ["id", 15]]
+  ↳ app/models/user.rb:24
+  [1m[35m (38.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+  Rendering user_mailer/reset_password.html.erb within layouts/mailer
+  Rendered user_mailer/reset_password.html.erb within layouts/mailer (0.6ms)
+UserMailer#reset_password: processed outbound mail in 10.4ms
+Sent mail to refyfadhila96@gmail.com (1052.6ms)
+Date: Mon, 03 Dec 2018 10:51:02 +0700
+From: monggovest1@example.com
+To: refyfadhila96@gmail.com
+Message-ID: <5c04a826a691d_352b2aec051dd48835015@RefiqiMF.mail>
+Subject: Token Password reset
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Welcome to Monggovest.com, refiqi</h1>
+  <p>
+    Please copy the Mentioned token below refiqi.<br>
+    To get you password reset.
+  </p>
+  <p>
+  	<%= @user.reset_password_token =>
+  </p>
+<p>Thanks for your time and have a great day!</p>
+  </body>
+</html>
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 200 OK in 1389ms (Views: 9.9ms | ActiveRecord: 81.2ms)
+
+
+Started POST "/api/v1/password/forgot" for 127.0.0.1 at 2018-12-03 10:52:43 +0700
+Processing by Api::V1::PasswordsController#forgot as */*
+  Parameters: {"email"=>"refyfadhila96@gmail.com", "password"=>{"email"=>"refyfadhila96@gmail.com"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "refyfadhila96@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/passwords_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:24
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "refyfadhila96@gmail.com"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = $1, "reset_password_sent_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["reset_password_token", "a6716d72f2eb4633d969"], ["reset_password_sent_at", "2018-12-03 03:52:44.366692"], ["updated_at", "2018-12-03 03:52:44.372172"], ["id", 15]]
+  ↳ app/models/user.rb:24
+  [1m[35m (30.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:24
+  Rendering user_mailer/reset_password.html.erb within layouts/mailer
+  Rendered user_mailer/reset_password.html.erb within layouts/mailer (1.3ms)
+UserMailer#reset_password: processed outbound mail in 16.8ms
+Sent mail to refyfadhila96@gmail.com (1170.5ms)
+Date: Mon, 03 Dec 2018 10:52:44 +0700
+From: monggovest1@example.com
+To: refyfadhila96@gmail.com
+Message-ID: <5c04a88c6ac26_352b2aec051dd2bc35169@RefiqiMF.mail>
+Subject: Token Password reset
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Welcome to Monggovest.com, refiqi</h1>
+  <p>
+    Please copy the Mentioned token below refiqi.<br>
+    To get you password reset.
+  </p>
+  <p>
+  	<%= @user.reset_password_token =>
+  </p>
+<p>Thanks for your time and have a great day!</p>
+  </body>
+</html>
+
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 200 OK in 1278ms (Views: 10.3ms | ActiveRecord: 38.0ms)
+
+

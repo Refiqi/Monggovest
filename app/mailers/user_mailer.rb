@@ -8,8 +8,7 @@ class UserMailer < ApplicationMailer
   
   def reset_password(user)
   	@user = user
-  	mail(to: @user.email, subject: "Click this link to generate reset 
-  						          password #{user.generate_password_token!}")
+  	mail(to: @user.email, subject: "Token Password reset")
   end
 
 end
