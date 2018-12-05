@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1
+  slot: 1
+  count_view: 1
+  product: one
+
+two:
+  price: 1
+  slot: 1
+  count_view: 1
+  product: two

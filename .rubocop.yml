@@ -1,0 +1,12 @@
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Rails/Validation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
