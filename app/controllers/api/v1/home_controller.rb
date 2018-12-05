@@ -1,7 +1,7 @@
 class Api::V1::HomeController < ApplicationController
   before_action :authenticate_user, only: [:auth, :all]
 
-  # Public method
+  # Public methodz
   def index
     render json: { service: 'auth-api', status: 200 }
   end

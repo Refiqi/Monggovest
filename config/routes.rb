@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :users
+  mount RailsAdmin::Engine => '/api/v1/admin', as: 'rails_admin'
+  
+  root to: 'pages#show', page: "sign_in"
+
+
   namespace :api do
     namespace :v1 do
       # User actions

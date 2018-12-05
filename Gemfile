@@ -35,7 +35,10 @@ gem 'rack-cors'
 gem 'rubocop'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'rails_admin', '~> 1.3'
+gem 'rails_admin_rollincode', '~> 1.0'
+gem 'cancan'
+gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   # Necessary to authenticate.
-  has_secure_password
 
   # Basic password validation, configure to your liking.
   validates_length_of       :password, maximum: 72, minimum: 8, allow_nil: true, allow_blank: false
@@ -32,6 +35,14 @@ class User < ApplicationRecord
     self.reset_password_token = nil
     self.password = password
     save!
+  end
+
+  def admin?
+    self.role == 'admin'
+  end
+
+  def user?
+    self.role == 'user'
   end
 
   private

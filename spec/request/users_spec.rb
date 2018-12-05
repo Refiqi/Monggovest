@@ -29,17 +29,6 @@ RSpec.describe 'Create user', type: :request do
           .to eq('Unfilled params')
       end
     end
-
-    # context 'Generating JWT Token' do
-    #   let!(:users) { create(:user) }
-    #   let(:user_id) { users.first.id }
-    #   before { post '/api/v1/user_token', params: auth_params }
-
-    #   it 'return JWT Token' do
-    #     expected_result = "jwt"
-    #     expect(json["jwt"]).to eq(expected_result)
-    #   end
-    # end
   end
 
   describe 'GET /users/current' do
