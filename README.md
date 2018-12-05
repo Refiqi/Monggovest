@@ -1,24 +1,42 @@
-# README
+# Simple Blog
+ [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]() 
+- Languages : Ruby, Framework : Rails
+- Database: Postgresql
+- Authentication: Devise,JWT token with knock
+- Control Management system: Rails admin  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Pre
+    Ruby version 2.5.0 or higher
+    Postgresql
+    Bundler
+    Rails
 
-Things you may want to cover:
+# Run Local
+  
+    git clone <url repo> | Clone this repo
+    bundle install | Install gem
+    rake db:create | Create database
+    rake db:migrate | Create migration
+    rails server | Running rails server in localhost
+    running at http://localhost:3000
 
-* Ruby version
+# Run Local Rubocop
+  
+  
+    bundle exec rubocop <your_file> [options]
+    [options] : Auto Correct = -a
 
-* System dependencies
+# Run Local RSpec
+  
+  
+    bundle exec rspec
+    You can see the Coverage Testing in folder /coverage/index.html you can open it in browser
 
-* Configuration
+# Run Local Admin interface
+  
+  
+    http://localhost:3000/api/v1/admin
+    Register first From the API To Assign role to admin, so that you can access the rails admin.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Author
+Refiqi Muhamad Fadila | refyfadhila96@gmail.com
