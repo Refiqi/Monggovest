@@ -1,7 +1,12 @@
-<h3>Hello <%= current_user.name %></h3>
-<p>Welcome to Monggovest !</p>
 
-<p>
-	<%= link_to 'Log out', destroy_user_session_path,:class => 'btn btn-danger',
-	method: :delete  %>
-</p>
+<div class="container">
+  <div class="card card-container">
+    <h3>Hello <%= current_user.name %></h3>
+    <p>Welcome to Monggovest !</p>
+
+    <p>
+    	<%= link_to 'Log out', destroy_user_session_path,:class => 'btn btn-danger',
+    	method: :delete  %>
+    </p>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 class Api::V1::HomeController < ApplicationController
-  before_action :authenticate_user, only: [:auth, :all]
+  before_action :authenticate_user, only: %i[auth all]
 
   # Public methodz
   def index
@@ -15,10 +15,12 @@ class Api::V1::HomeController < ApplicationController
   # Authorized only method
   def auth
     if authenticate_user true
-      render json: { status: 200, msg: "You are currently Logged-in as #{current_user.name}" }
+      render json: { status: 200,
+                     msg: "You are currently Logged-in
+                          as #{current_user.name}" }
     else
       not_auth
-   end
+    end
   end
 
   private
@@ -28,6 +30,6 @@ class Api::V1::HomeController < ApplicationController
       message: 'Unauthorized Access',
       result: 'No Token Detected',
       status: 'Unauthorized'
-    }, status: 401
+    }, status: :unauthorized
   end
 end

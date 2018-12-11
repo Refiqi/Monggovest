@@ -5,6 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+gem 'carrierwave'
+gem 'cloudinary', '~> 1.9.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record
@@ -32,16 +34,17 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'knock'
 gem 'rack-cors'
-gem 'rubocop'
+# gem 'rubocop'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-gem 'rails_admin', '~> 1.3'
-gem 'rails_admin_rollincode', '~> 1.0'
 gem 'cancan'
 gem 'devise'
+gem 'rails_admin', '~> 1.3'
+gem 'rails_admin_rollincode', '~> 1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'bootstrap'
+gem 'jquery-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
