@@ -1,18 +1,17 @@
 language: ruby
 script:
-    - gem install bundler --no-ri --no-rdoc
-    - gem install execjs
-    - RAILS_ENV=test bundle install --jobs $(nproc) "${FLAGS[@]}"
-    - bundle exec rake db:create
-    - bundle exec rake db:migrate
-    - bundle exec rake db:seed
+- gem install bundler --no-ri --no-rdoc
+- gem install execjs
+- RAILS_ENV=test bundle install --jobs $(nproc) "${FLAGS[@]}"
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- bundle exec rake db:seed
 deploy:
   provider: heroku
   api_key:
-    secure: Nz6mooToh1ddYxtGW4mqm9ZubW5iyfu8mzPepn1APSMNr5knkUZth/o3sKX540sWJ9XdC5eyavVLG/oyjocd49TeL5XqWHQVVNEnjRY1XbfuRwLyHe18avGAsRodgI3S1rSB7ea+0OtySq3VSioETcm86HuduXkdbLD1tzt3ascX0Z6g+7HILUeea7rbQUYo+dFt0W7urL0ix7yO4QH9WEywJ5TJXz28T22hHOEp2qa6xfzu0cjGzTTAXUDKTLldy4PYPVA9+hqyWFqhKQuzoUW9Uyb+z2hTlqNhRaAmUi4e/u5OVIYIl4+CjRg95TQCA1gBJRfORUZrgSZtMI7Ab3E7inl9BN3MrUez+qBzgHt6uGWrvg1xhOs3UmMYdq7px9qxkAx2uda8+7QNp0s8kZ/2Ous9wl/YjCuWVVJj547tRYSYZ9lp9uniCttaG/2NacIpZZN4zHa9fRVhuVAchm9bfVx0QycX/+fCHlBbNsAV2btIFqaN2DrkLTlpd+iEL2/lqchla9niaenauepGu4rWCnzix3/WMUxMRMqRLqrK+7gDuPi4xor7GmM8jnMocfhDThEmiCSyltibQO7afWtXj/jsANVHCi+Ey2xBb9aTqEeeHiwDH6PnlQ7e2W4mq2Jk8A1n1r5MDQD4jsJdtTVFRugR3DV5enKqCEyy0gU=
+    secure: oO+SX433yrGzQWGlBkQRSM6KVVCzavgxBmKssWhKmVNUgTPehE2fU+RKN0KU02/wG0eDDhxRTdSp7Mp9O/2MMuatEJBeK+rnSHaw2m1Qg0BI+HBxueyvXxff9v9NxtUQ9PrUiP+vIXTgJ+V3LzKdE1q+acaiHA7iFoKA8S+1+EsojFgHyqyYOPbUjMdEeSIojr/A+KsXJZjppob+NFkIIzRJGrwYlTbMJ7RLjbfiGbyZ+ceQdHBgtHuazy3hQpLchyAt3EUxQRPvvBGgFke2vYy8CNDH6ThYHUdPla2+iVL9fRhj7plIacBzUESCnl3Eb91gboU4L114PeRN4n4CqOsFqgRZFHIZgjIfzcSFG+oeVe1Pn4RdqfmGJCdMwcpR+IRvmul82o6xSfoYG1u7rZyXWqWbdiJufoyZ/NnefA3kroWIsMRIRDcTexbAaC33C7pQlp+3bvGc21MmPhZGV/jM4Wo1sokJFhNcwPIdb8Z+L2Fp6FUncBfW2xQQv3jQ5Zd6qY9FlBUXCpJOsECXMNND9/DPRTnzeisU9eXirYOUgniw74SS3K8kZrzVHSGkwXidjkPYOEiugoTVDMhJHHkFQZnSSuw1PrblH2P+tVk9/g69dBrfC6pAnQzCJ2O9oJykltgl+WDj3oCxm34RphOqc9jxOMcRcRkI79grmpc=
+  app: refiqi-monggovest
+  on:
+    repo: Refiqi/Monggovest
 run:
-  - "rake db:migrate"
-
-on:
-  - develop
-  - master
+- rake db:migrate
