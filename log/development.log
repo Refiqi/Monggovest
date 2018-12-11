@@ -16931,5 +16931,23 @@ Processing by Devise::SessionsController#new as HTML
   Rendering devise/sessions/new.html.erb within layouts/application
   Rendered devise/sessions/new.html.erb within layouts/application (4.1ms)
 Completed 200 OK in 104ms (Views: 102.1ms | ActiveRecord: 0.0ms)
+<<<<<<< HEAD
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-11 16:07:07 +0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/refiqi/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"sign_in"}
+Completed 401 Unauthorized in 88ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-12-11 16:07:08 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (84.8ms)
+Completed 200 OK in 1905ms (Views: 1837.6ms | ActiveRecord: 6.0ms)
+=======
+>>>>>>> a3acb8db1a9445983156048070a76a2f593d92fc
 
 
