@@ -13,7 +13,7 @@ deploy:
   app: refiqi-monggovest
   on:
     repo: Refiqi/Monggovest
-    - develop
-    - master
+      - develop
+      - master
 run:
 - rake db:migrate

@@ -1,5 +1,6 @@
 # Monggovest App
  [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
+ [![Build Status](https://travis-ci.com/Refiqi/Monggovest.svg?branch=master)](https://travis-ci.com/Refiqi/Monggovest)
  Web based Investing Application
 - Languages : Ruby, Framework : Rails
 - Database: Postgresql
