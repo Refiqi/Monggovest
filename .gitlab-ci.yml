@@ -1,0 +1,43 @@
+services:
+  - postgres:latest
+
+variables:
+  POSTGRES_DB: MonggoFest
+
+stages:
+  - build
+  - staging
+  - production
+
+bulid-state:
+  stage: build
+  variables:
+    DATABASE_URL: "postgresql://postgres@postgres:5432/$POSTGRES_DB"
+  script:
+    - apt-get update && apt install -y -qq nodejs
+    - gem install bundler --no-ri --no-rdoc
+    - gem install execjs
+    - RAILS_ENV=test bundle install --jobs $(nproc) "${FLAGS[@]}"
+    - bundle exec rake db:migrate
+    - bundle exec rake db:seed
+  except:
+    - develop
+    - master
+
+staging-state:
+  stage: staging
+  script:
+    - gem install dpl
+    - dpl --provider=heroku --app=staging-monggovest --api-key=1684e917-0abc-40e2-8ba0-3f722529b86a
+    - curl -s -X POST https://api.telegram.org/bot753819662:AAGNPS9tTHw_BWSB9nEy2FVMa45RjpQjbww/sendMessage -d chat_id=-1001311231318 -d text="[Staging-Monggovest-BOT] Deploy Done | Deployed by $GITLAB_USER_NAME | ${CI_COMMIT_SHA:0:8} | $CI_COMMIT_TITLE"  
+  only:
+    - develop
+
+production-state:
+  stage: production
+  script:
+    - gem install dpl
+    - dpl --provider=heroku --app=monggovest-batam --api-key=1684e917-0abc-40e2-8ba0-3f722529b86a
+    - curl -s -X POST https://api.telegram.org/bot753819662:AAGNPS9tTHw_BWSB9nEy2FVMa45RjpQjbww/sendMessage -d chat_id=-1001311231318 -d text="[Production-Monggovest-BOT] Deploy Done | Deployed by $GITLAB_USER_NAME | ${CI_COMMIT_SHA:0:8} | $CI_COMMIT_TITLE"  
+  only:
+    - master
