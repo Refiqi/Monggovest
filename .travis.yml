@@ -14,7 +14,7 @@ deploy:
   app: refiqi-monggovest
   on:
     repo: Refiqi/Monggovest
-  on:
+  branch:
     - master
     - develop
 run:
