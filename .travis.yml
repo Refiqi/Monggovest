@@ -1,4 +1,5 @@
 language: ruby
+cache: bundler
 script:
 - gem install bundler --no-ri --no-rdoc
 - gem install execjs
@@ -13,5 +14,9 @@ deploy:
   app: refiqi-monggovest
   on:
     repo: Refiqi/Monggovest
+    branches:
+      only:
+        - master
+        - develop
 run:
 - rake db:migrate
