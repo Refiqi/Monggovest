@@ -4,6 +4,7 @@ script:
     - gem install bundler --no-ri --no-rdoc
     - gem install execjs
     - RAILS_ENV=test bundle install --jobs $(nproc) "${FLAGS[@]}"
+    - bundle exec rake db:create
     - bundle exec rake db:migrate
     - bundle exec rake db:seed
 deploy:
