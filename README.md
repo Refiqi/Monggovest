@@ -1,44 +1,24 @@
-# Monggovest App
- [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
- [![Build Status](https://travis-ci.com/Refiqi/Monggovest.svg?branch=master)](https://travis-ci.com/Refiqi/Monggovest)
- Web based Investing Application
-- Languages : Ruby, Framework : Rails
-- Database: Postgresql
-- Authentication: Devise,JWT token with knock
-- Control Management system: Rails admin
+# README
 
-# Pre
-    Ruby version 2.5.0 or higher
-    Postgresql
-    Bundler
-    Rails
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-# Run Local
+Things you may want to cover:
 
-    git clone <url repo> | Clone this repo
-    bundle install | Install gem
-    rake db:create | Create database
-    rake db:migrate | Create migration
-    rails server | Running rails server in localhost
-    running at http://localhost:3000
+* Ruby version
 
-# Run Local Rubocop
+* System dependencies
 
+* Configuration
 
-    bundle exec rubocop <your_file> [options]
-    [options] : Auto Correct = -a
+* Database creation
 
-# Run Local RSpec
+* Database initialization
 
+* How to run the test suite
 
-    bundle exec rspec
-    You can see the Coverage Testing in folder /coverage/index.html you can open it in browser
+* Services (job queues, cache servers, search engines, etc.)
 
-# Run Local Admin interface
+* Deployment instructions
 
-
-    http://localhost:3000/api/v1/admin
-    Register first From the API To Assign role to admin, so that you can access the rails admin.
-
-# Author
-Refiqi Muhamad Fadila | refyfadhila96@gmail.com
+* ...

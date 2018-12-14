@@ -72,7 +72,7 @@ Rails.application.configure do
   }
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "MonggoFest_#{Rails.env}"
+  # config.active_job.queue_name_prefix = "monggo_fest_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
 
@@ -86,7 +86,7 @@ Rails.application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
-
+  config.force_ssl = true
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 

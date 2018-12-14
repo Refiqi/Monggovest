@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  regional: one
+  name: MyString
+
+two:
+  regional: two
+  name: MyString

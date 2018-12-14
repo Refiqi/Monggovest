@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kecamatan: one
+  product_type: one
+  name: MyString
+  image: MyString
+
+two:
+  kecamatan: two
+  product_type: two
+  name: MyString
+  image: MyString

@@ -1,0 +1,2 @@
+module IncomeResourcesHelper
+end
