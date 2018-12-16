@@ -18,5 +18,3 @@ deploy:
       only:
         - master
         - develop
-  run:
-    - rake db:migrate
