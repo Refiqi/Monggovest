@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/refiqi96/Project/GlintsxBinar/backend/spec/support/request_spec_helper.rb": [
+      "/home/rauf/Documents/Monggovest/backend/spec/support/request_spec_helper.rb": [
         1,
         1,
         7,
@@ -13,7 +13,7 @@
         null,
         null
       ],
-      "/home/refiqi96/Project/GlintsxBinar/backend/app/controllers/pages_controller.rb": [
+      "/home/rauf/Documents/Monggovest/backend/app/controllers/pages_controller.rb": [
         1,
         1,
         1,
@@ -21,7 +21,7 @@
         null,
         null
       ],
-      "/home/refiqi96/Project/GlintsxBinar/backend/app/controllers/application_controller.rb": [
+      "/home/rauf/Documents/Monggovest/backend/app/controllers/application_controller.rb": [
         null,
         null,
         1,
@@ -37,8 +37,8 @@
         1,
         null,
         1,
-        20,
-        12,
+        23,
+        15,
         7,
         null,
         1,
@@ -62,15 +62,15 @@
         null,
         null,
         1,
-        0,
-        0,
+        3,
+        3,
         null,
         0,
         null,
         null,
         null
       ],
-      "/home/refiqi96/Project/GlintsxBinar/backend/spec/helpers/pages_helper_spec.rb": [
+      "/home/rauf/Documents/Monggovest/backend/spec/helpers/pages_helper_spec.rb": [
         1,
         null,
         null,
@@ -87,7 +87,7 @@
         1,
         null
       ],
-      "/home/refiqi96/Project/GlintsxBinar/backend/spec/models/user_spec.rb": [
+      "/home/rauf/Documents/Monggovest/backend/spec/models/user_spec.rb": [
         1,
         null,
         1,
@@ -105,8 +105,8 @@
         null,
         1,
         1,
-        0,
-        0,
+        1,
+        1,
         null,
         null,
         1,
@@ -117,7 +117,7 @@
         null,
         null
       ],
-      "/home/refiqi96/Project/GlintsxBinar/backend/spec/request/users_spec.rb": [
+      "/home/rauf/Documents/Monggovest/backend/spec/request/users_spec.rb": [
         1,
         null,
         1,
@@ -237,9 +237,10 @@
         null,
         null
       ],
-      "/home/refiqi96/Project/GlintsxBinar/backend/app/controllers/api/v1/users_controller.rb": [
+      "/home/rauf/Documents/Monggovest/backend/app/controllers/api/v1/users_controller.rb": [
         null,
         null,
+        1,
         1,
         null,
         1,
@@ -323,7 +324,7 @@
         null,
         null
       ],
-      "/home/refiqi96/Project/GlintsxBinar/backend/app/serializers/user_serializer.rb": [
+      "/home/rauf/Documents/Monggovest/backend/app/serializers/user_serializer.rb": [
         null,
         null,
         1,
@@ -333,6 +334,6 @@
         null
       ]
     },
-    "timestamp": 1544152811
+    "timestamp": 1544372427
   }
 }

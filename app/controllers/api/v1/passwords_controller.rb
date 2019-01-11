@@ -7,10 +7,11 @@ class Api::V1::PasswordsController < ApplicationController
 
     # Jika Email ada
     @user = User.find_by(email: params[:email])
-    token = @user.reset_password_token
-    @url = "#{request.host}/password/reset=#{token}"
     if @user.present?
       @user.generate_password_token! # generate pass token
+      token = @user.reset_password_token
+      @url =
+        "https://monggovest-staging.herokuapp.com/password/reset=#{token}"
       UserMailer.reset_password(@user, @url).deliver_now
       render json: { status: 'ok' }, status: :ok
     else

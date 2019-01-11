@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.configure do
+  Rails.application.config.active_record.belongs_to_required_by_default = false
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -53,6 +54,7 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+  config.gem 'pg'
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
@@ -68,12 +70,11 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.mailgun.org',
-    port: 587,
-    domain: ENV['DOMAIN'],
-    user_name: ENV['USER_NAME'],
-    password: ENV['PASSWORD'],
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => ENV['USERNAME'],
+    :password             => ENV['PASSWORD'],
+    :authentication       => "plain",
+   :enable_starttls_auto => true
+   } 
 end

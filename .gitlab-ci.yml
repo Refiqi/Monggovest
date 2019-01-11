@@ -15,7 +15,7 @@ bulid-state:
     DATABASE_URL: "postgresql://postgres@postgres:5432/$POSTGRES_DB"
   script:
     - apt-get update && apt install -y -qq nodejs
-    - gem install bundler --no-ri --no-rdoc
+    - gem install bundler --no-document
     - gem install execjs
     - RAILS_ENV=test bundle install --jobs $(nproc) "${FLAGS[@]}"
     - bundle exec rake db:migrate

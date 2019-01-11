@@ -5,6 +5,7 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
+  
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -61,19 +62,17 @@ Rails.application.configure do
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
   config.action_mailer.delivery_method = :smtp
-  # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-   :address              => "smtp.gmail.com",
-   :port                 => 587,
-   :user_name            => ENV['USERNAME'],
-   :password             => ENV['PASSWORD'],
-   :authentication       => "plain",
-  :enable_starttls_auto => true
-  }
-  
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => ENV['USERNAME'],
+    :password             => ENV['PASSWORD'],
+    :authentication       => "plain",
+   :enable_starttls_auto => true
+   }
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "MonggoFest_#{Rails.env}"
+  # config.active_job.queue_name_prefix = "monggo_fest_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
 
@@ -84,10 +83,9 @@ Rails.application.configure do
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
-
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
-
+  config.force_ssl = true
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 

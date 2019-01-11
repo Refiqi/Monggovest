@@ -1,0 +1,19 @@
+                List of relations
+ Schema |          Name          | Type  | Owner  
+--------+------------------------+-------+--------
+ public | ar_internal_metadata   | table | refiqi
+ public | investor_details       | table | refiqi
+ public | payment_details        | table | refiqi
+ public | pictures               | table | refiqi
+ public | product_invest_details | table | refiqi
+ public | product_invests        | table | refiqi
+ public | products               | table | refiqi
+ public | provinces              | table | refiqi
+ public | regionals              | table | refiqi
+ public | schema_migrations      | table | refiqi
+ public | sliders                | table | refiqi
+ public | subdistricts           | table | refiqi
+ public | user_investors         | table | refiqi
+ public | users                  | table | refiqi
+(14 rows)
+

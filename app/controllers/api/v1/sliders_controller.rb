@@ -5,7 +5,7 @@ class Api::V1::SlidersController < ApplicationController
 
   # method to create API to show all slider from table
   def index
-    sliders = Slider.all
+    sliders = Slider.where(:isActive => true)
     if sliders.present?
       render json: {
         status: 'OK', results: sliders, error: nil
@@ -20,7 +20,17 @@ class Api::V1::SlidersController < ApplicationController
   # method to save new slider
   def create
     slider = Slider.new(slider_params)
+    sliderall = Slider.all
+    if sliderall.present?
+      sliderlast = Slider.last
+      sort_number = sliderlast.sort_number.to_i
+      sort_numbers = sort_number + 1
+    else
+      sort_number = 0
+      sort_numbers = sort_number + 1
+    end
     if slider.save
+      slider.update(sort_number: sort_numbers)
       slider.reload
       render json: { status: 'OK', results: slider, error: nil },
              status: :created

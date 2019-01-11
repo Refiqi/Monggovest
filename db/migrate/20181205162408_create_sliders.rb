@@ -5,7 +5,7 @@ class CreateSliders < ActiveRecord::Migration[5.2]
       t.string :image
       t.string :url
       t.integer :sort_number
-      t.boolean :isActive, :default => true
+      t.boolean :isActive, default: true
 
       t.timestamps
     end

@@ -47,6 +47,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   def public_id
-    "sliders/" + Cloudinary::Utils.random_public_id
+    'sliders/' + Cloudinary::Utils.random_public_id
   end
 end

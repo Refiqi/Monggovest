@@ -2,7 +2,8 @@
 
 class Api::V1::UsersController < ApplicationController
   before_action :authenticate_user, only: [:update]
-  # Should work if the current_user is authenticated.
+  skip_before_action :verify_authenticity_token
+
   def index
     if current_user
       render json: { status: 200, msg: "Logged-in as #{current_user.name}" }

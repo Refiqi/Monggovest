@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  has_many :user_investors
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -23,11 +24,11 @@ class User < ApplicationRecord
 
   # Make sure email and username are present and unique.
   validates_presence_of     :email
-  validates_presence_of     :name
+  # validates_presence_of     :name
   validates_uniqueness_of   :email
 
   alias authenticate valid_password?
-  
+
   def generate_password_token!
     self.reset_password_token = generate_token
     self.reset_password_sent_at = Time.now.utc
