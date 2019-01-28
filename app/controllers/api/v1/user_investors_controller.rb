@@ -1,8 +1,7 @@
 class Api::V1::UserInvestorsController < ApplicationController
-  def new
-    @userin = UserInvestor.new
-  end
+  # before_action :authenticate_user
 
+  # function to show all data in feature/userinvest
   def index
     @userin = UserInvestor.all
     if @userin.present?
@@ -16,6 +15,7 @@ class Api::V1::UserInvestorsController < ApplicationController
     end
   end
 
+  # function to show data by id in feature/userinvest
   def show
     @userin = UserInvestor.find(params[:id])
     if @userin.present?
@@ -28,6 +28,7 @@ class Api::V1::UserInvestorsController < ApplicationController
     end
   end
 
+  # function update data by id in feature/userinvest
   def update
     @userin = UserInvestor.find(params[:id])
     update_userin = @userin.update(userin_params)
@@ -41,18 +42,23 @@ class Api::V1::UserInvestorsController < ApplicationController
     end
   end
 
+  # function to create data in feature/userinvest
   def create
-    @userin = UserInvestor.new(userin_params)
-    if @userin.save
-      render json: { status: 'OK', results: @userin, errors: nil },
-             status: :created
-    else
-      render json: { status: 'FAIL', results: nil,
-                     errors: 'failed to create user' },
-             status: :unprocesable_entity
+    if current_user
+      # render json: { status: 200, msg: "Logged-in as #{current_user.name}" }
+      @userin = UserInvestor.new(userin_params)
+      if @userin.save
+        render json: { status: 'OK', results: @userin, errors: nil },
+              status: :created
+      else
+        render json: { status: 'FAIL', results: nil,
+                      errors: 'failed to create user' },
+              status: :unprocesable_entity
+      end
     end
   end
 
+  # function to delete data by id in feature/userinvest
   def destroy
     @userin = UserInvestor.find(params[:id])
     if @userin.destroy
@@ -67,6 +73,7 @@ class Api::V1::UserInvestorsController < ApplicationController
 
   private
 
+  # function to whitelist params
   def userin_params
     params.permit(:user_id, :product_invest_id, :investor_slot,
                   :investor_pay, :invest_year, :created_at)

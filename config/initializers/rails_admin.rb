@@ -32,9 +32,18 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
-
     ## With an audit adapter, you can add:
     # history_index
     # history_show
   end
+
+  config.model 'ProductInvest' do
+    show do
+
+      field :product
+      field :price
+      field :slot
+      field :pictures
+    end
+end
 end

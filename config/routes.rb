@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get 'prodinvests', to: 'product_invests#index'
       get 'prodinvest/:id', to: 'product_invests#show'
       get 'proinvdetail/:id', to: 'product_invest_details#show'
+      get 'proinvdetails', to: 'product_invest_details#index'
 
       resources :products
       resources :product_types
@@ -54,6 +55,12 @@ Rails.application.routes.draw do
       get 'enum/id_card_type', to: 'enum#id_card_type'
       get 'enum/income_resource', to: 'enum#income_resource'
       get 'enum/salary_range', to: 'enum#salary_range'
+      # routes dor payment_detail
+      get 'paymentdetails', to: 'payment_details#index'
+      get 'paymentdetails/:id', to: 'payment_details#show'
+      post 'paymentdetails/', to: 'payment_details#create'
+      put 'paymentdetails/:id', to: 'payment_details#update'
+      
     end
   end
 end

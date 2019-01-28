@@ -2,11 +2,24 @@ class Api::V1::ProductInvestDetailsController < ApplicationController
   # before_action :authenticate_user
   before_action :find_proinvdetail, only: [:show]
 
+  def index
+    proinvdetails = ProductInvestDetail.all
+    if proinvdetails.present?
+      data = proinvdetails.as_json(include: %i[product product_invest 
+                          province regional subdistrict pictures])
+      render json: {
+        status: 'OK', results: data, error: nil
+      }, status: :ok
+    else
+      not_auth
+    end
+  end
+
   def show
     if @proinvdetail.present?
       popular
-      data = @proinvdetail.as_json(include: %i[product_invest 
-      											product pictures])
+      data = @proinvdetail.as_json(include: %i[product product_invest 
+      										province	regional subdistrict pictures])
       render json: {
         status: 'OK', results: data, error: nil
       },

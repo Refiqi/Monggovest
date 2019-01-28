@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_12_091221) do
+ActiveRecord::Schema.define(version: 2019_01_16_135521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2018_12_12_091221) do
     t.boolean "isPaid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "card_holder_name"
+    t.integer "receipt"
     t.index ["user_investor_id"], name: "index_payment_details_on_user_investor_id"
   end
 
@@ -72,16 +74,24 @@ ActiveRecord::Schema.define(version: 2018_12_12_091221) do
   end
 
   create_table "products", force: :cascade do |t|
+<<<<<<< HEAD
     t.bigint "regional_id"
     t.bigint "province_id"
     t.bigint "subdistricts_id"
+=======
+    t.bigint "subdistrict_id"
+>>>>>>> bbf41c1f8cc7fc1907009c7eadf5d94bdbb2bfe3
     t.integer "product_type", default: 0
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.index ["province_id"], name: "index_products_on_province_id"
     t.index ["regional_id"], name: "index_products_on_regional_id"
     t.index ["subdistricts_id"], name: "index_products_on_subdistricts_id"
+=======
+    t.index ["subdistrict_id"], name: "index_products_on_subdistrict_id"
+>>>>>>> bbf41c1f8cc7fc1907009c7eadf5d94bdbb2bfe3
   end
 
   create_table "provinces", force: :cascade do |t|
@@ -147,9 +157,13 @@ ActiveRecord::Schema.define(version: 2018_12_12_091221) do
   add_foreign_key "pictures", "products"
   add_foreign_key "product_invest_details", "product_invests"
   add_foreign_key "product_invests", "products"
+<<<<<<< HEAD
   add_foreign_key "products", "provinces"
   add_foreign_key "products", "regionals"
   add_foreign_key "products", "subdistricts", column: "subdistricts_id"
+=======
+  add_foreign_key "products", "subdistricts"
+>>>>>>> bbf41c1f8cc7fc1907009c7eadf5d94bdbb2bfe3
   add_foreign_key "regionals", "provinces"
   add_foreign_key "subdistricts", "regionals"
   add_foreign_key "user_investors", "product_invests", column: "product_invests_id"

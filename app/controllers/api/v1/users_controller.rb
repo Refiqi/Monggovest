@@ -61,12 +61,16 @@ class Api::V1::UsersController < ApplicationController
 
   private
 
+# To Whitelist Allowed params that will go through database.
+
   def user_params
     params.require(:user)
           .permit(:name, :email,
                   :password, :password_confirmation,
                   :role)
   end
+
+# Callback for Unpermitted User
 
   def not_auth(status = :unauthorized)
     render json: {
@@ -75,6 +79,8 @@ class Api::V1::UsersController < ApplicationController
       status: 'Unauthorized'
     }, status: status
   end
+
+# Callback for Unvalid params
 
   def not_good(status = 406)
     render json: {

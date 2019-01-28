@@ -18,16 +18,19 @@ class User < ApplicationRecord
                              maximum: 32, allow_nil: true,
                              allow_blank: false
 
+  # It Will Downcase all the email and name to be saved in database.
   before_validation do
     (self.email = email.to_s.downcase) && (self.name = name.to_s.downcase)
   end
 
   # Make sure email and username are present and unique.
   validates_presence_of     :email
-  # validates_presence_of     :name
   validates_uniqueness_of   :email
 
+  # Calling alias method for devise to be the same as Knock Variable
   alias authenticate valid_password?
+
+  # Method for Generating Password Token in Database
 
   def generate_password_token!
     self.reset_password_token = generate_token
@@ -35,9 +38,13 @@ class User < ApplicationRecord
     save!
   end
 
+  # Method for checking if the token is valid or not.
+
   def password_token_valid?
     (reset_password_sent_at + 4.hours) > Time.now.utc
   end
+
+  # Method for Reseting Password in database.Then Ii will return the reset password token to nil
 
   def reset_password!(password)
     self.reset_password_token = nil
@@ -45,15 +52,21 @@ class User < ApplicationRecord
     save!
   end
 
+  # Method for Checking if the user role is admin
+
   def admin?
     role == 'admin'
   end
+
+  # Method for Checking if the user role is user
 
   def user?
     role == 'user'
   end
 
   private
+
+  # Calling in built ruby Securerandom method for Generating Token
 
   def generate_token
     SecureRandom.hex(10)

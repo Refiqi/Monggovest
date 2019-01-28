@@ -2,8 +2,8 @@ class Api::V1::ProductInvestsController < ApplicationController
   def index
     prodinvests = ProductInvest.all
     if prodinvests.present?
-      data = prodinvests.as_json(include: %i[product subdistrict
-                                    regional province pictures])
+      data = prodinvests.as_json(include: %i[product product_invest_detail 
+                                    subdistrict regional province pictures])
       render json: {
         status: 'OK', results: data, error: nil
       }, status: :ok

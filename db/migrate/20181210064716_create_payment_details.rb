@@ -4,7 +4,7 @@ class CreatePaymentDetails < ActiveRecord::Migration[5.2]
       t.references :user_investor, foreign_key: true
       t.integer :payment_method
       t.string :card_number
-      t.date :card_valid_date
+      t.string :card_valid_date
       t.string :cvv
       t.boolean :isPaid
 

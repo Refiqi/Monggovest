@@ -99,3 +99,14 @@ function testLocalStorageData() {
     localStorage.setItem("PROFILE_NAME", "César Izquierdo Tello");
     localStorage.setItem("PROFILE_REAUTH_EMAIL", "oneaccount@gmail.com");
 }
+
+$(document).ready(function(){
+    var bg=[0,1,2,3,4];
+    var index=0;
+    setInterval(function(){
+    index=(index + 1) % bg.length;
+    $('body').css('background-image','url("https://res.cloudinary.com/just-alone/image/upload/v1547654903/background-login/bg'+index+'.jpg")');
+    },5000);
+    });
+
+
